@@ -10,18 +10,21 @@ var gulp = require('gulp'),
     mqpacker = require('css-mqpacker'),
     cssnext = require('cssnext'),
     jshint = require('gulp-jshint'),
-    csscomb = require('gulp-csscomb');
+    csscomb = require('gulp-csscomb'),
+    plumber = require('gulp-plumber');
 
 var path = {};
 path.src = "src/";
 path.dest = "dist/";
 
 path.jade = path.src + "templates/*.jade";
+path.jadeWatch = path.src + "templates/**/*.jade"
 
 path.stylus = [
 	path.src + "styles/custom/**/*.styl",
 	path.src + "styles/bootstrap/bootstrap.styl"
 ];
+path.stylusWatch = path.src + "styles/**/*.styl";
 
 path.js = path.src + "scripts/**/*.js";
 path.jshint = [
@@ -41,6 +44,7 @@ path.fonts = path.src + "fonts/**/*.*";
 
 gulp.task('jade', function(){
 	return gulp.src(path.jade)
+	.pipe(plumber())
 	.pipe(jade({pretty : true}))
 	.pipe(gulp.dest(path.dest))
 	.pipe(browserSync.stream());
@@ -56,6 +60,7 @@ gulp.task('stylus', function(){
 		cssnext()
 	];
 	return gulp.src(path.stylus)
+	.pipe(plumber())
 	.pipe(stylus())
 	.pipe(postcss(processors))
 	.pipe(csscomb())
@@ -68,11 +73,13 @@ gulp.task('stylus', function(){
  */
 gulp.task('js-copy', function(){
 	return gulp.src(path.js)
+	.pipe(plumber())
 	.pipe(gulp.dest(path.dest + "js"));
 });
 
 gulp.task('js', ['js-copy'], function(){
 	return gulp.src(path.jshint)
+	.pipe(plumber())
 	.pipe(jshint())
 	.pipe(jshint.reporter('default'));
 });
@@ -80,25 +87,27 @@ gulp.task('js', ['js-copy'], function(){
 /*
  * Other
  */
-gulp.task('clean', function(callback){
+gulp.task('clean', function(){
 	del(path.dest);
-	return cache.clearAll(callback);
 });
 
 
 gulp.task('imagemin', function(){
 	return gulp.src(path.images)
+	.pipe(plumber())
 	.pipe(imagemin())
 	.pipe(gulp.dest(path.dest + "images"));
 });
 
 gulp.task('svg', function(){
 	return gulp.src(path.svg)
+	.pipe(plumber())
 	.pipe(gulp.dest(path.dest + "images"));
 });
 
 gulp.task('fonts', function(){
 	return gulp.src(path.fonts)
+	.pipe(plumber())
 	.pipe(gulp.dest(path.dest + "css/fonts"));
 });
 
@@ -106,8 +115,8 @@ gulp.task('fonts', function(){
  * Watching && Browser Sync
  */
 gulp.task('watch', function(){
-	gulp.watch(path.jade, ['jade']);
-	gulp.watch(path.stylus, ['stylus']);
+	gulp.watch(path.jadeWatch, ['jade']);
+	gulp.watch(path.stylusWatch, ['stylus']);
 	gulp.watch(path.js, ['js']);
 	gulp.watch(path.images, ['imagemin']);
 	gulp.watch(path.svg, ['svg']);
