@@ -81,7 +81,8 @@ gulp.task('js', ['js-copy'], function(){
 	return gulp.src(path.jshint)
 	.pipe(plumber())
 	.pipe(jshint())
-	.pipe(jshint.reporter('default'));
+	.pipe(jshint.reporter('default'))
+	.pipe(browserSync.stream());
 });
 
 /*
