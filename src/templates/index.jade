@@ -1,1 +1,28 @@
 extends base/base
+
+block content
+	.menu
+		.menu__top-part
+			a(href="").menu__item.menu__item--hamburger
+				include svg/hamburger.svg
+			a(href="").menu__item.menu__item--link
+				include svg/status.svg
+				span Статус
+			a(href="").menu__item.menu__item--link.active
+				include svg/map.svg
+				span Карта
+			a(href="").menu__item.menu__item--link
+				include svg/people.svg
+				span Люди
+			a(href="").menu__item.menu__item--link
+				include svg/themes.svg
+				span Темы
+			a(href="").menu__item.menu__item--link
+				include svg/banks.svg
+				span Банки
+		.menu__bottom-part
+			a(href="").menu__item.menu__item--exit
+				include svg/exit.svg
+				span Выйти
+	.content
+		.content__top Интерактивная карта

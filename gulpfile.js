@@ -21,8 +21,7 @@ path.jade = path.src + "templates/*.jade";
 path.jadeWatch = path.src + "templates/**/*.jade"
 
 path.stylus = [
-	path.src + "styles/custom/**/*.styl",
-	path.src + "styles/bootstrap/bootstrap.styl"
+	path.src + "styles/custom/*.styl"
 ];
 path.stylusWatch = path.src + "styles/**/*.styl";
 
