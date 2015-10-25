@@ -1,0 +1,61 @@
+.map
+	position relative
+	svg
+		width 100%
+		height auto
+		fill #44b230
+		stroke white
+		stroke-width 0.5px
+
+		#none
+			fill #949494
+			cursor default
+
+	&__legend
+		position absolute
+		z-index 1
+		top vw(24)
+		right vw(21)
+		text-align right
+		.title
+			font-size vw(25)
+			font-weight bold
+		.string
+			font-size vw(12.5)
+
+
+$data = {
+	area_1:     #44b230,
+	area_2:     #a8e27f,
+	area_3:     #8ecd62,
+	area_4:     #509521,
+	area_5:     #75b945,
+	area_6:     #44b230,
+	area_7:     #62a632,
+	area_8:     #62a632,
+	area_9:     #75b945,
+	area_10:    #519521,
+	area_11:    #43b230,
+	area_12:    #8ecd62,
+	area_13:    #519521,
+	country_1:  #ca940b,
+	country_2:  #edb016,
+	country_3:  #edb016,
+	country_4:  #ffcd50,
+	country_5:  #edb016,
+	country_6:  #edb016,
+	country_7:  #ca940b,
+	country_8:  #f6bf35,
+	country_9:  #ca940b,
+	country_10: #f6bf35,
+	country_11: #ca940b,
+	country_12: #edb016,
+	country_13: #ffcd50,
+	country_14: #f6bf35,
+	country_15: #f6bf35,
+}
+
+for key, value in $data
+	.map svg #{key}
+		fill value
+		cursor pointer

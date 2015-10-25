@@ -1,0 +1,33 @@
+.badge
+	flex 1 0 1%
+	height vw(160)
+	background #fff
+	padding vw(32) vw(55)
+	display flex
+	justify-content left
+	align-items center
+	&:not(:last-child)
+		margin-right vw(32)
+
+	&--users svg
+		fill #00653a
+	&--questions svg
+		fill #f6bf35
+	&--comments svg
+		fill #eb902d
+
+	svg
+		width vw(96)
+		height auto
+		margin-right vw(23)
+
+	&__text
+		.number
+			color #525252
+			font-size vw(41.97)
+			font-weight bold
+			line-height 1
+		.string
+			color #999
+			font-size vw(20.83)
+

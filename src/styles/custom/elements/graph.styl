@@ -1,0 +1,82 @@
+.graph
+	padding vw(28)
+	display flex
+	position relative
+
+	&--flare
+		svg
+			width vw(280)
+			height vw(280)
+
+	&--donut
+		flex-direction column
+		svg
+			width vw(180)
+			height vw(180)
+
+		.graph__body
+			margin vw(28) 0 vw(20)
+			display flex
+			justify-content space-around
+
+		.graph__desc
+			display flex
+			justify-content space-around
+			font-size vw(20.83)
+			font-weight bold
+			div
+				flex 0 0 50%
+
+	&--pie
+		svg
+			width vw(278)
+			height auto
+
+	&__legend
+		font-size vw(20.83)
+		font-weight bold
+		margin-top vw(70)
+		.legend
+			padding-left vw(37)
+			position relative
+			display flex
+			margin-bottom vw(24)
+			div
+				flex 0 0 auto
+				width vw(28)
+				height vw(25)
+				margin-right vw(9)
+			span
+				flex 1 0 auto
+
+	&__title
+		&--absolute
+			position absolute
+			right vw(28)
+			top vw(28)
+		&--right
+			text-align right
+		.title
+			font-size vw(25)
+			font-weight bold
+			line-height 1
+		.subtitle
+			font-size vw(12.5)
+
+.linechart
+	padding vw(98) vw(50) vw(50)
+	display flex
+	flex-direction column
+	svg
+		width vw(1660)
+		flex 1 0 vw(336)
+
+	.axis
+		path
+		line
+			fill none
+			stroke #d6d6d6
+		text
+			font-size 12px
+			fill #d6d6d6
+			shape-rendering crispEdges

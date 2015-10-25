@@ -335,7 +335,7 @@
             <div class="graph graph--donut"></div>
             <div class="graph graph--pie"></div>
           </div>
-          <div class="content-body__biggraph"></div>
+          <div class="content-body__linechart linechart"></div>
         </div>
       </div>
     </div>
@@ -344,70 +344,125 @@
   <script>
     //- Flare graph (small left)
     (function(d3){
-    	var data = [1, 1, 2, 3, 5, 8, 13];
+    	var data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // Isn't best idea, I know
     
-    	var width = 960,
-    		height = 500,
-    		outerRadius = height / 2 - 10,
-    		innerRadius = outerRadius - 60,
-    		cornerRadius = 12,
-    		padAngle = .03;
+    	var maxSum = 0; // Store max value for outer radius calc
     
-    	var pie = d3.layout.pie()
-    		.padAngle(padAngle);
+    	var width = 280,
+    	height = 280,
+    	radius = height / 2 - 10;
     
-    	var arcs = pie(data);
+    	var arcPositive = d3.svg.arc()
+    		.innerRadius(0)
+    		.outerRadius(function(d){return radius / maxSum * parseFloat(d.data.positive);});
     
-    	var arc = d3.svg.arc()
-    		.innerRadius(innerRadius)
-    		.outerRadius(outerRadius)
-    		.cornerRadius(cornerRadius);
+    	var arcNeutral = d3.svg.arc()
+    		.innerRadius(function(d){return radius / maxSum * parseFloat(d.data.positive);})
+    		.outerRadius(function(d){return radius / maxSum * (parseFloat(d.data.positive) + parseFloat(d.data.neutral));});
     
-    	var color = d3.scale.category10();
+    	var arcNegative = d3.svg.arc()
+    		.innerRadius(function(d){return radius / maxSum * (parseFloat(d.data.positive) + parseFloat(d.data.neutral));})
+    		.outerRadius(function(d){return radius / maxSum * (parseFloat(d.data.positive) + parseFloat(d.data.neutral) + parseFloat(d.data.negative));});
+    
+    	var piePositive = d3.layout.pie()
+    		.padAngle(.07)
+    		.value(function(d) { return d.key; });
+    
+    	var pieNeutral = d3.layout.pie()
+    		.padAngle(.05)
+    		.value(function(d) { return d.key; });
+    
+    	var pieNegative = d3.layout.pie()
+    		.padAngle(.03)
+    		.value(function(d) { return d.key; });
+    
+    	var color = ["#434348", "#90ed7d", "#f15c80"];
+    	var tonality = ["Позитивные", "Нейтральные", "Негативные"]
     
     	var svg = d3.select(".graph--flare").append("svg")
     		.attr("width", width)
     		.attr("height", height)
-    	  .append("g")
+    		.attr('version', "1.1")
+    		.attr('xmlns', 'http://www.w3.org/2000/svg')
+    		.attr('x', 0)
+    		.attr('y', 0)
+    		.attr('viewBox', "0 0 "+width+" "+height)
+    		.attr('width', width)
+    		.attr('height', height)
+    		.append("g")
     		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
     
-    	svg.append("circle")
-    		.style("fill", "none")
-    		.style("stroke", "#555")
-    		.attr("r", innerRadius);
+    	//- Div title
+    	var title = d3.select('.graph--flare')
+    		.append('div')
+    		.attr('class', 'graph__title graph__title--absolute text-right');
     
-    	svg.append("circle")
-    		.style("fill", "none")
-    		.style("stroke", "#555")
-    		.attr("r", outerRadius);
+    	title.append('div')
+    		.attr('class', 'title')
+    		.text('Тональность вопросов');
     
-    	svg.append("g")
-    		.style("stroke", "#555")
-    		.style("fill", "none")
-    		.attr("class", "corner")
-    	  .selectAll("circle")
-    		.data(d3.merge(arcs.map(function(d) {
-    		  return [
-    			{angle: d.startAngle + padAngle / 2, radius: outerRadius - cornerRadius, start: +1},
-    			{angle:   d.endAngle - padAngle / 2, radius: outerRadius - cornerRadius, start: -1},
-    			{angle:   d.endAngle - padAngle / 2 * outerRadius / innerRadius, radius: innerRadius + cornerRadius, start: -1},
-    			{angle: d.startAngle + padAngle / 2 * outerRadius / innerRadius, radius: innerRadius + cornerRadius, start: +1}
-    		  ];
-    		})))
-    	  .enter().append("circle")
-    		.attr("cx", function(d) { return d.start * cornerRadius * Math.cos(d.angle) + Math.sqrt(d.radius * d.radius - cornerRadius * cornerRadius) * Math.sin(d.angle); })
-    		.attr("cy", function(d) { return d.start * cornerRadius * Math.sin(d.angle) - Math.sqrt(d.radius * d.radius - cornerRadius * cornerRadius) * Math.cos(d.angle); })
-    		.attr("r", cornerRadius);
+    	title.append('div')
+    		.attr('class', 'subtitle')
+    		.text('по территориальным банкам');
     
-    	svg.append("g").selectAll("path")
-    		.data(arcs)
-    	  .enter().append("path")
-    		.style("fill", function(d, i) { return color(i); })
-    		.style("fill-opacity", .25)
-    		.style("stroke", "#000")
-    		.style("stroke-width", "1.5px")
-    		.attr("d", arc);
+    	//- Div legend
+    	var legend = d3.select('.graph--flare')
+    		.append('div')
+    		.attr('class','graph__legend');
+    
+    	for(var i=0; i < tonality.length; i++){
+    
+    		var legendItem = legend.append('div')
+    			.attr('class', 'legend');
+    
+    		legendItem.append('div')
+    			.style('background', color[i]);
+    
+    		legendItem.append('span')
+    			.text(tonality[i]);
+    	}
+    
+    
+    	d3.csv('tonality.csv', function(error, dataset){
+    		dataset.forEach(function(d){
+    			var sum = parseFloat(d.positive) + parseFloat(d.neutral) + parseFloat(d.negative);
+    			if (sum > maxSum){maxSum = sum};
+    			d.key = +d.key;
+    		});
+    
+    		var gPositive = svg.append("g")
+    			.attr("class", "posititve");
+    
+    		var gNeutral = svg.append("g")
+    			.attr("class", "neutral");
+    
+    		var gNegative = svg.append("g")
+    			.attr("class", "negative");
+    
+    		gPositive.selectAll("path")
+    			.data(piePositive(dataset))
+    			.enter().append("path")
+    			.style("fill", color[0])
+    			.attr("d", arcPositive);
+    
+    		gNeutral.selectAll("path")
+    			.data(pieNeutral(dataset))
+    			.enter().append("path")
+    			.style("fill", color[1])
+    			.attr("d", arcNeutral);
+    
+    		gNegative.selectAll("path")
+    			.data(pieNegative(dataset))
+    			.enter().append("path")
+    			.style("fill", color[2])
+    			.attr("d", arcNegative);
+    
+    	});
+    
+    
     })(window.d3);
+    
+    
     
     //- Donut graph (small center)
     (function(d3) {
@@ -602,8 +657,47 @@
     		legendItem.append('span')
     			.text(function(d) {return d;});
     
-    
     	});
+    
+    })(window.d3);
+    
+    // Line chart
+    (function(d3){
+    	var margin = {left:30,right:30,top:20,bottom:20};
+    	var svgWidth = 1660;
+    	var svgHeight = 336;
+    	var width = svgWidth - margin.left - margin.right;
+    	var height = svgHeight - margin.top - margin.bottom;
+    
+    	var y = d3.scale.linear()
+    		.domain([0,100])
+    		.range([height,0]);
+    
+    	var yAxis = d3.svg.axis()
+    		.scale(y)
+    		.orient("left")
+    		.ticks(5)
+    		.tickSize(-width);
+    
+    	var svg = d3.select(".linechart")
+    		.append("svg")
+    		.attr('version', "1.1")
+    		.attr('xmlns', 'http://www.w3.org/2000/svg')
+    		.attr('x', 0)
+    		.attr('y', 0)
+    		.attr('viewBox', "0 0 "+svgWidth+" "+svgHeight)
+    		.attr('width', svgWidth)
+    		.attr('height', svgHeight)
+    		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+    	svg.append('rect')
+    		.attr("width", width)
+    		.attr("height", height)
+    		.attr('style', 'fill:#fff;');
+    
+    	svg.append('g')
+    		.attr('class', 'y axis')
+    		.call(yAxis);
     
     })(window.d3);
   </script>

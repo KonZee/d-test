@@ -491,11 +491,11 @@ body {
 	display: -ms-flexbox;
 	display:         flex;
 }
-.content-body__biggraph {
+.content-body__linechart {
 	-webkit-box-flex: 1;
-	-webkit-flex: 1 0 19.53125vw;
-	    -ms-flex: 1 0 19.53125vw;
-	        flex: 1 0 19.53125vw;
+	-webkit-flex: 1 0 23.388671875vw;
+	    -ms-flex: 1 0 23.388671875vw;
+	        flex: 1 0 23.388671875vw;
 	background: #FFFFFF;
 }
 .content-body__map,
@@ -710,6 +710,10 @@ body {
 	display:         flex;
 	position: relative;
 }
+.graph--flare svg {
+	width: 13.671875vw;
+	height: 13.671875vw;
+}
 .graph--donut {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
@@ -796,4 +800,33 @@ body {
 }
 .graph__title .subtitle {
 	font-size: 0.6103515625vw;
+}
+.linechart {
+	padding: 4.78515625vw 2.44140625vw 2.44140625vw;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.linechart svg {
+	width: 81.0546875vw;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 16.40625vw;
+	    -ms-flex: 1 0 16.40625vw;
+	        flex: 1 0 16.40625vw;
+}
+.linechart .axis path,
+.linechart .axis line {
+	fill: none;
+	stroke: #D6D6D6;
+}
+.linechart .axis text {
+	font-size: 12px;
+	fill: #D6D6D6;
+	shape-rendering: crispEdges;
 }
