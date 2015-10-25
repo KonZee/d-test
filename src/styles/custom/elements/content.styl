@@ -1,11 +1,55 @@
+.content-container
+	overflow hidden
+	display flex
+	flex-direction column
+
 .content
 	background #dedede
 	position relative
+	display flex
+	flex-direction column
+	flex 1 0 100%
 
 	&__top
-		font-size 2vw
+		flex 0 0 vw(104)
+		font-size vw(50)
 		font-weight bold
 		background #bababa
-		height 4.7vw
 		color #525252
-		padding 1.1vw 2vw
+		padding vw(20) vw(39) 0
+		cursor default
+
+	&__body
+		flex 1 0 1px
+		background #dedede
+
+.content-body
+	display flex
+	flex-direction column
+	padding vw(80) vw(64) vw(64)
+
+	&__badges
+		flex 0 0 vw(160)
+		display flex
+	&__map
+		flex 0 0 vw(1121)
+		background #fff
+	&__graphs
+		flex 0 0 vw(352)
+		display flex
+	&__biggraph
+		flex 1 0 vw(400)
+		background #fff
+
+	&__map
+	&__badges
+	&__graphs
+		margin-bottom vw(32)
+
+// Graphs flex
+.graph
+	flex 1 0 1%
+	height vw(352)
+	background #fff
+	&:not(:last-child)
+		margin-right vw(32)

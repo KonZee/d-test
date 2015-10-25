@@ -1,28 +1,61 @@
 extends base/base
 
 block content
-	.menu
-		.menu__top-part
-			a(href="").menu__item.menu__item--hamburger
-				include svg/hamburger.svg
-			a(href="").menu__item.menu__item--link
-				include svg/status.svg
-				span Статус
-			a(href="").menu__item.menu__item--link.active
-				include svg/map.svg
-				span Карта
-			a(href="").menu__item.menu__item--link
-				include svg/people.svg
-				span Люди
-			a(href="").menu__item.menu__item--link
-				include svg/themes.svg
-				span Темы
-			a(href="").menu__item.menu__item--link
-				include svg/banks.svg
-				span Банки
-		.menu__bottom-part
-			a(href="").menu__item.menu__item--exit
-				include svg/exit.svg
-				span Выйти
-	.content
-		.content__top Интерактивная карта
+	input(type="checkbox")#menuswitch
+	.menu-container
+		.menu
+			.menu__top-part
+				label.menu__item.menu__item--hamburger(for="menuswitch")
+					//-include svg/hamburger.svg
+					.hamburger
+				a(href="").menu__item.menu__item--link
+					include svg/status.svg
+					span Статус
+				a(href="").menu__item.menu__item--link.active
+					include svg/map.svg
+					span Карта
+				a(href="").menu__item.menu__item--link
+					include svg/people.svg
+					span Люди
+				a(href="").menu__item.menu__item--link
+					include svg/themes.svg
+					span Темы
+				a(href="").menu__item.menu__item--link
+					include svg/banks.svg
+					span Банки
+			.menu__bottom-part
+				a(href="").menu__item.menu__item--exit
+					include svg/exit.svg
+					span Выйти
+	.content-container
+		.content
+			.content__top Интерактивная карта
+			.content__body.content-body
+				.content-body__badges
+					.badge.badge--users
+						include svg/users.svg
+						.badge__text
+							.number 3354
+							.string пользователей в системе
+					.badge.badge--questions
+						include svg/questions.svg
+						.badge__text
+							.number 5342
+							.string вопросов в системе
+					.badge.badge--comments
+						include svg/comments.svg
+						.badge__text
+							.number 1085
+							.string комментариев в системе
+				.content-body__map.map
+					//-include svg/bigmap.svg
+					include elements/bigmap.jade
+					.map__legend
+						.title Интерактивная карта
+						.string Нажмите на регион для просмотра<br />подробной информации
+				.content-body__graphs
+					.graph.graph--flare
+					.graph.graph--donut
+					.graph.graph--pie
+
+				.content-body__biggraph

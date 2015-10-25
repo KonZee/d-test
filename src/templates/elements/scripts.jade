@@ -1,1 +1,270 @@
-script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js ') 
+//-script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js ')
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8")
+
+script.
+
+	//- Flare graph (small left)
+	(function(d3){
+		var data = [1, 1, 2, 3, 5, 8, 13];
+
+		var width = 960,
+			height = 500,
+			outerRadius = height / 2 - 10,
+			innerRadius = outerRadius - 60,
+			cornerRadius = 12,
+			padAngle = .03;
+
+		var pie = d3.layout.pie()
+			.padAngle(padAngle);
+
+		var arcs = pie(data);
+
+		var arc = d3.svg.arc()
+			.innerRadius(innerRadius)
+			.outerRadius(outerRadius)
+			.cornerRadius(cornerRadius);
+
+		var color = d3.scale.category10();
+
+		var svg = d3.select(".graph--flare").append("svg")
+			.attr("width", width)
+			.attr("height", height)
+		  .append("g")
+			.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+		svg.append("circle")
+			.style("fill", "none")
+			.style("stroke", "#555")
+			.attr("r", innerRadius);
+
+		svg.append("circle")
+			.style("fill", "none")
+			.style("stroke", "#555")
+			.attr("r", outerRadius);
+
+		svg.append("g")
+			.style("stroke", "#555")
+			.style("fill", "none")
+			.attr("class", "corner")
+		  .selectAll("circle")
+			.data(d3.merge(arcs.map(function(d) {
+			  return [
+				{angle: d.startAngle + padAngle / 2, radius: outerRadius - cornerRadius, start: +1},
+				{angle:   d.endAngle - padAngle / 2, radius: outerRadius - cornerRadius, start: -1},
+				{angle:   d.endAngle - padAngle / 2 * outerRadius / innerRadius, radius: innerRadius + cornerRadius, start: -1},
+				{angle: d.startAngle + padAngle / 2 * outerRadius / innerRadius, radius: innerRadius + cornerRadius, start: +1}
+			  ];
+			})))
+		  .enter().append("circle")
+			.attr("cx", function(d) { return d.start * cornerRadius * Math.cos(d.angle) + Math.sqrt(d.radius * d.radius - cornerRadius * cornerRadius) * Math.sin(d.angle); })
+			.attr("cy", function(d) { return d.start * cornerRadius * Math.sin(d.angle) - Math.sqrt(d.radius * d.radius - cornerRadius * cornerRadius) * Math.cos(d.angle); })
+			.attr("r", cornerRadius);
+
+		svg.append("g").selectAll("path")
+			.data(arcs)
+		  .enter().append("path")
+			.style("fill", function(d, i) { return color(i); })
+			.style("fill-opacity", .25)
+			.style("stroke", "#000")
+			.style("stroke-width", "1.5px")
+			.attr("d", arc);
+	})(window.d3);
+
+	//- Donut graph (small center)
+	(function(d3) {
+		'use strict';
+
+		var width = 180;
+		var height = 180;
+		var radius = Math.min(width, height) / 2;
+		var donutWidth = 14;
+
+		var color;
+
+		var percent;
+
+		var title = d3.select('.graph--donut')
+			.append('div')
+			.attr('class', 'graph__title text-center')
+			.append('div')
+			.attr('class', 'title')
+			.text("Относительно результатов прошлого года");
+
+		var body = d3.select('.graph--donut')
+			.append('div')
+			.attr('class', "graph__body");
+
+		var arc = d3.svg.arc()
+			.innerRadius(radius - donutWidth)
+			.outerRadius(radius);
+
+		var svg1 = d3.select('.graph__body')
+			.append('svg')
+			.attr('version', "1.1")
+			.attr('xmlns', 'http://www.w3.org/2000/svg')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('viewBox', "0 0 "+width+" "+height)
+			.attr('width', width)
+			.attr('height', height)
+			.append('g')
+			.attr('transform', 'translate(' + (width / 2) +
+				',' + (height / 2) + ')');
+
+		var svg2 = d3.select('.graph__body')
+			.append('svg')
+			.attr('version', "1.1")
+			.attr('xmlns', 'http://www.w3.org/2000/svg')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('viewBox', "0 0 "+width+" "+height)
+			.attr('width', width)
+			.attr('height', height)
+			.append('g')
+			.attr('transform', 'translate(' + (width / 2) +
+				',' + (height / 2) + ')');
+
+		var pie1 = d3.layout.pie()
+			.value(function(d) { return d.users; })
+			.sort(null);
+		var pie2 = d3.layout.pie()
+			.value(function(d) { return d.questions; })
+			.sort(null);
+
+		d3.csv('relative.csv', function(error, dataset){
+			dataset.forEach(function(d){
+				d.year = +d.year;
+			});
+
+			color = d3.scale.ordinal().range(["#eeeeee", "#ffa200"]);
+
+			var path = svg1.selectAll('path')
+				.data(pie1(dataset))
+				.enter()
+				.append('path')
+				.attr('d', arc)
+				.attr('fill', function(d, i) {
+					return color(d.data.ucolor);
+				});
+
+			percent = Math.round(dataset[1].users/dataset[0].users * 100) + "%";
+			svg1.append('text')
+				.attr('style', 'font-size: 33.33px; text-anchor: middle;')
+				.attr('fill', dataset[1].ucolor)
+				.attr('dy', '0.4em')
+				.text(percent);
+
+			color = d3.scale.ordinal().range(["#eeeeee", "#a4ed16"]);
+
+			var path = svg2.selectAll('path')
+				.data(pie2(dataset))
+				.enter()
+				.append('path')
+				.attr('d', arc)
+				.attr('fill', function(d, i) {
+					return color(d.data.qcolor);
+				});
+
+			percent = Math.round(dataset[1].questions/dataset[0].questions * 100) + "%";
+			svg2.append('text')
+				.attr('style', 'font-size: 33.33px; text-anchor: middle;')
+				.attr('fill', dataset[1].qcolor)
+				.attr('dy', '0.4em')
+				.text(percent);
+
+		});
+
+		var desc = d3.select('.graph--donut')
+			.append('div')
+			.attr('class', "graph__desc text-center");
+
+		desc.append('div')
+			.text("Пользователи");
+		desc.append('div')
+			.text("Вопросы");
+
+	})(window.d3);
+
+
+
+	//- Pie graph (small right)
+	(function(d3) {
+		'use strict';
+
+		var width = 50;
+		var height = 50;
+		var radius = Math.min(width, height) / 2;
+		var color = d3.scale.ordinal()
+			.range(["#7cb5ec", "#434348", "#90ed7d", "#f7a35c", "#8085e9"]);
+
+		//- SVG graph itself
+		var svg = d3.select('.graph--pie')
+			.append('svg')
+			.attr('version', "1.1")
+			.attr('xmlns', 'http://www.w3.org/2000/svg')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('viewBox', "0 0 "+width+" "+height)
+			.attr('width', width)
+			.attr('height', height)
+			.append('g')
+			.attr('transform', 'translate(' + (width / 2) +
+			',' + (height / 2) + ')');
+
+		//- Div legend
+		var legend = d3.select('.graph--pie')
+			.append('div')
+			.attr('class','graph__legend');
+
+		//- Div title
+		var title = d3.select('.graph--pie')
+			.append('div')
+			.attr('class', 'graph__title graph__title--absolute text-right');
+
+		title.append('div')
+			.attr('class', 'title')
+			.text('Структура вопросов');
+
+		title.append('div')
+			.attr('class', 'subtitle')
+			.text('по должностям');
+
+		// Arc function
+		var arc = d3.svg.arc()
+			.outerRadius(radius);
+
+		var pie = d3.layout.pie()
+			.value(function(d) { return d.count; })
+			.sort(null);
+
+		d3.csv('structure.csv', function(error, dataset){
+			dataset.forEach(function(d){
+				d.count = +d.count;
+			});
+
+			var path = svg.selectAll('path')
+				.data(pie(dataset))
+				.enter()
+				.append('path')
+				.attr('d', arc)
+				.attr('fill', function(d, i) {
+					return color(d.data.label);
+				});
+
+			var legendItem = legend.selectAll('.legend')
+				.data(color.domain())
+				.enter()
+				.append('div')
+				.attr('class', 'legend');
+
+			legendItem.append('div')
+				.style('background', color);
+
+			legendItem.append('span')
+				.text(function(d) {return d;});
+
+
+		});
+
+	})(window.d3);
