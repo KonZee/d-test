@@ -351,6 +351,7 @@ script.
 		var xAxis = d3.svg.axis()
 			.scale(x)
 			.ticks(d3.time.monday)
+			.tickFormat(d3.time.format("%e/%m"))
 			.orient("bottom");
 
 		var yAxis = d3.svg.axis()
@@ -392,11 +393,6 @@ script.
 				d.date = parseDate(d.date);
 				d.activity = +d.activity;
 			});
-
-			console.log(dataset.length)
-			console.log(dataset[0])
-			console.log(dataset[0].date);
-			console.log(dataset[dataset.length - 1].date)
 
 			x.domain(d3.extent(dataset, function(d) { return d.date; }));
 
