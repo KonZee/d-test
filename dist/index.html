@@ -335,7 +335,9 @@
             <div class="graph graph--donut"></div>
             <div class="graph graph--pie"></div>
           </div>
-          <div class="content-body__linechart linechart"></div>
+          <div class="content-body__linechart">
+            <div class="linechart graph graph--linechart"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -663,15 +665,33 @@
     
     // Line chart
     (function(d3){
-    	var margin = {left:30,right:30,top:20,bottom:20};
+    
+    	var title = d3.select('.graph--linechart')
+    		.append('div')
+    		.attr('class', 'graph__title text-center')
+    		.append('div')
+    		.attr('class', 'title')
+    		.text("Активность пользователей по неделям");
+    
+    	var margin = {left:30,right:30,top:10,bottom:30};
     	var svgWidth = 1660;
     	var svgHeight = 336;
     	var width = svgWidth - margin.left - margin.right;
     	var height = svgHeight - margin.top - margin.bottom;
     
+    	var parseDate = d3.time.format("%d-%b-%y").parse;
+    
+    	var x = d3.time.scale()
+    		.range([0,width]);
+    
     	var y = d3.scale.linear()
     		.domain([0,100])
     		.range([height,0]);
+    
+    	var xAxis = d3.svg.axis()
+    		.scale(x)
+    		.ticks(d3.time.monday)
+    		.orient("bottom");
     
     	var yAxis = d3.svg.axis()
     		.scale(y)
@@ -679,7 +699,14 @@
     		.ticks(5)
     		.tickSize(-width);
     
-    	var svg = d3.select(".linechart")
+    	// Define the line
+    	var lineFunction = d3.svg.line()
+    		.x(function(d) { return x(d.date); })
+    		.y(function(d) { return y(d.activity); })
+    		 .interpolate("monotone");
+    
+    
+    	var svg = d3.select(".graph--linechart")
     		.append("svg")
     		.attr('version', "1.1")
     		.attr('xmlns', 'http://www.w3.org/2000/svg')
@@ -688,16 +715,45 @@
     		.attr('viewBox', "0 0 "+svgWidth+" "+svgHeight)
     		.attr('width', svgWidth)
     		.attr('height', svgHeight)
+    		.append("g")
     		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
     	svg.append('rect')
     		.attr("width", width)
     		.attr("height", height)
-    		.attr('style', 'fill:#fff;');
+    		.attr('style', 'fill:transparent;');
     
     	svg.append('g')
     		.attr('class', 'y axis')
     		.call(yAxis);
+    
+    	d3.csv("activity.csv", function(error, dataset){
+    		dataset.forEach(function(d){
+    			d.date = parseDate(d.date);
+    			d.activity = +d.activity;
+    		});
+    
+    		console.log(dataset.length)
+    		console.log(dataset[0])
+    		console.log(dataset[0].date);
+    		console.log(dataset[dataset.length - 1].date)
+    
+    		x.domain(d3.extent(dataset, function(d) { return d.date; }));
+    
+    		svg.append('g')
+    			.attr('class', 'x axis')
+    			.attr("transform", "translate(0," + height + ")")
+    			.call(xAxis);
+    
+    		svg.append("path")
+    			.attr("class", "line")
+    			.attr("d", lineFunction(dataset))
+    			.attr("style", "fill:transparent;");
+    
+    		var gCircle = svg.append('g')
+    			.attr('class', 'circles');
+    
+    	});
     
     })(window.d3);
   </script>

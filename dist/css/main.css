@@ -447,9 +447,9 @@ body {
 }
 .content__body {
 	-webkit-box-flex: 1;
-	-webkit-flex: 1 0 1px;
-	    -ms-flex: 1 0 1px;
-	        flex: 1 0 1px;
+	-webkit-flex: 1 0 1%;
+	    -ms-flex: 1 0 1%;
+	        flex: 1 0 1%;
 	background: #DEDEDE;
 }
 .content-body {
@@ -702,6 +702,28 @@ body {
 	fill: #F6BF35;
 	cursor: pointer;
 }
+@-webkit-keyframes animatemap {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes animatemap {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 .graph {
 	padding: 1.3671875vw;
 	display: -webkit-box;
@@ -802,7 +824,7 @@ body {
 	font-size: 0.6103515625vw;
 }
 .linechart {
-	padding: 4.78515625vw 2.44140625vw 2.44140625vw;
+	padding: 1.85546875vw 2.44140625vw 2.44140625vw;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -823,10 +845,16 @@ body {
 .linechart .axis path,
 .linechart .axis line {
 	fill: none;
+}
+.linechart .axis line {
 	stroke: #D6D6D6;
 }
 .linechart .axis text {
-	font-size: 12px;
-	fill: #D6D6D6;
+	font-size: 16px;
+	fill: #000000;
 	shape-rendering: crispEdges;
+}
+.linechart .line {
+	stroke: #0B62A4;
+	stroke-width: 4;
 }
