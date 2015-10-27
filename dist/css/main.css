@@ -571,13 +571,16 @@ body {
 	stroke: #FFFFFF;
 	stroke-width: 0.5px;
 }
+.map svg #animated path:focus {
+	outline: none;
+}
 .map svg #none {
 	fill: #949494;
 	cursor: default;
 }
 .map__tooltip {
 	position: absolute;
-	width: 14.16015625vw;
+	min-width: 14.16015625vw;
 	height: 8.203125vw;
 	border-radius: 0.244140625vw;
 	padding: 0.390625vw;
@@ -599,16 +602,22 @@ body {
 .map__legend .string {
 	font-size: 0.6103515625vw;
 }
+.map use {
+	pointer-events: none;
+}
 .map svg #area_1 {
 	fill: #44B230;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.270463743479922s;
-	        animation-delay: 1.270463743479922s;
+	-webkit-animation: area_1 2s infinite;
+	        animation: area_1 2s infinite;
+	-webkit-animation-delay: 0.659656680305488s;
+	        animation-delay: 0.659656680305488s;
 }
-.map svg #area_1:hover {
-	fill: #20E600;
+.map svg #area_1:hover,
+.map svg #area_1:active,
+.map svg #area_1:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_1 {
 	0% {
@@ -646,14 +655,17 @@ body {
 }
 .map svg #area_2 {
 	fill: #A8E27F;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.262489617103711s;
-	        animation-delay: 1.262489617103711s;
+	-webkit-animation: area_2 2s infinite;
+	        animation: area_2 2s infinite;
+	-webkit-animation-delay: 1.468124931561761s;
+	        animation-delay: 1.468124931561761s;
 }
-.map svg #area_2:hover {
-	fill: #A1FF57;
+.map svg #area_2:hover,
+.map svg #area_2:active,
+.map svg #area_2:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_2 {
 	0% {
@@ -691,14 +703,17 @@ body {
 }
 .map svg #area_3 {
 	fill: #8ECD62;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.650985841755755s;
-	        animation-delay: 0.650985841755755s;
+	-webkit-animation: area_3 2s infinite;
+	        animation: area_3 2s infinite;
+	-webkit-animation-delay: 1.142861513304524s;
+	        animation-delay: 1.142861513304524s;
 }
-.map svg #area_3:hover {
-	fill: #86F837;
+.map svg #area_3:hover,
+.map svg #area_3:active,
+.map svg #area_3:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_3 {
 	0% {
@@ -736,14 +751,17 @@ body {
 }
 .map svg #area_4 {
 	fill: #509521;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.20712135406211s;
-	        animation-delay: 1.20712135406211s;
+	-webkit-animation: area_4 2s infinite;
+	        animation: area_4 2s infinite;
+	-webkit-animation-delay: 1.16949681378901s;
+	        animation-delay: 1.16949681378901s;
 }
-.map svg #area_4:hover {
-	fill: #47C300;
+.map svg #area_4:hover,
+.map svg #area_4:active,
+.map svg #area_4:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_4 {
 	0% {
@@ -781,14 +799,17 @@ body {
 }
 .map svg #area_5 {
 	fill: #75B945;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.393307279329747s;
-	        animation-delay: 0.393307279329747s;
+	-webkit-animation: area_5 2s infinite;
+	        animation: area_5 2s infinite;
+	-webkit-animation-delay: 0.300632797298022s;
+	        animation-delay: 0.300632797298022s;
 }
-.map svg #area_5:hover {
-	fill: #6DE717;
+.map svg #area_5:hover,
+.map svg #area_5:active,
+.map svg #area_5:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_5 {
 	0% {
@@ -826,14 +847,17 @@ body {
 }
 .map svg #area_6 {
 	fill: #44B230;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.356893099145964s;
-	        animation-delay: 0.356893099145964s;
+	-webkit-animation: area_6 2s infinite;
+	        animation: area_6 2s infinite;
+	-webkit-animation-delay: 0.016598776448518s;
+	        animation-delay: 0.016598776448518s;
 }
-.map svg #area_6:hover {
-	fill: #20E600;
+.map svg #area_6:hover,
+.map svg #area_6:active,
+.map svg #area_6:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_6 {
 	0% {
@@ -871,14 +895,17 @@ body {
 }
 .map svg #area_7 {
 	fill: #62A632;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.987272386788391s;
-	        animation-delay: 0.987272386788391s;
+	-webkit-animation: area_7 2s infinite;
+	        animation: area_7 2s infinite;
+	-webkit-animation-delay: 0.863754817983136s;
+	        animation-delay: 0.863754817983136s;
 }
-.map svg #area_7:hover {
-	fill: #5AD404;
+.map svg #area_7:hover,
+.map svg #area_7:active,
+.map svg #area_7:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_7 {
 	0% {
@@ -916,14 +943,17 @@ body {
 }
 .map svg #area_8 {
 	fill: #62A632;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.881509725004435s;
-	        animation-delay: 0.881509725004435s;
+	-webkit-animation: area_8 2s infinite;
+	        animation: area_8 2s infinite;
+	-webkit-animation-delay: 0.61372119106818s;
+	        animation-delay: 0.61372119106818s;
 }
-.map svg #area_8:hover {
-	fill: #5AD404;
+.map svg #area_8:hover,
+.map svg #area_8:active,
+.map svg #area_8:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_8 {
 	0% {
@@ -961,14 +991,17 @@ body {
 }
 .map svg #area_9 {
 	fill: #75B945;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.471485551563092s;
-	        animation-delay: 1.471485551563092s;
+	-webkit-animation: area_9 2s infinite;
+	        animation: area_9 2s infinite;
+	-webkit-animation-delay: 0.162536554271355s;
+	        animation-delay: 0.162536554271355s;
 }
-.map svg #area_9:hover {
-	fill: #6DE717;
+.map svg #area_9:hover,
+.map svg #area_9:active,
+.map svg #area_9:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_9 {
 	0% {
@@ -1006,14 +1039,17 @@ body {
 }
 .map svg #area_10 {
 	fill: #519521;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.139730019844137s;
-	        animation-delay: 0.139730019844137s;
+	-webkit-animation: area_10 2s infinite;
+	        animation: area_10 2s infinite;
+	-webkit-animation-delay: 0.831537513644435s;
+	        animation-delay: 0.831537513644435s;
 }
-.map svg #area_10:hover {
-	fill: #49C300;
+.map svg #area_10:hover,
+.map svg #area_10:active,
+.map svg #area_10:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_10 {
 	0% {
@@ -1051,14 +1087,17 @@ body {
 }
 .map svg #area_11 {
 	fill: #43B230;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.007790002855472s;
-	        animation-delay: 0.007790002855472s;
+	-webkit-animation: area_11 2s infinite;
+	        animation: area_11 2s infinite;
+	-webkit-animation-delay: 0.337414867943153s;
+	        animation-delay: 0.337414867943153s;
 }
-.map svg #area_11:hover {
-	fill: #1EE600;
+.map svg #area_11:hover,
+.map svg #area_11:active,
+.map svg #area_11:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_11 {
 	0% {
@@ -1096,14 +1135,17 @@ body {
 }
 .map svg #area_12 {
 	fill: #8ECD62;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.239191729924642s;
-	        animation-delay: 1.239191729924642s;
+	-webkit-animation: area_12 2s infinite;
+	        animation: area_12 2s infinite;
+	-webkit-animation-delay: 0.481626975699328s;
+	        animation-delay: 0.481626975699328s;
 }
-.map svg #area_12:hover {
-	fill: #86F837;
+.map svg #area_12:hover,
+.map svg #area_12:active,
+.map svg #area_12:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_12 {
 	0% {
@@ -1141,14 +1183,17 @@ body {
 }
 .map svg #area_13 {
 	fill: #519521;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.325821419712156s;
-	        animation-delay: 0.325821419712156s;
+	-webkit-animation: area_13 2s infinite;
+	        animation: area_13 2s infinite;
+	-webkit-animation-delay: 1.236332537024282s;
+	        animation-delay: 1.236332537024282s;
 }
-.map svg #area_13:hover {
-	fill: #49C300;
+.map svg #area_13:hover,
+.map svg #area_13:active,
+.map svg #area_13:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes area_13 {
 	0% {
@@ -1186,14 +1231,17 @@ body {
 }
 .map svg #country_1 {
 	fill: #CA940B;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.677183372201398s;
-	        animation-delay: 0.677183372201398s;
+	-webkit-animation: country_1 2s infinite;
+	        animation: country_1 2s infinite;
+	-webkit-animation-delay: 0.0149092086358s;
+	        animation-delay: 0.0149092086358s;
 }
-.map svg #country_1:hover {
-	fill: #FFB500;
+.map svg #country_1:hover,
+.map svg #country_1:active,
+.map svg #country_1:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_1 {
 	0% {
@@ -1231,14 +1279,17 @@ body {
 }
 .map svg #country_2 {
 	fill: #EDB016;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.280328291351907s;
-	        animation-delay: 0.280328291351907s;
+	-webkit-animation: country_2 2s infinite;
+	        animation: country_2 2s infinite;
+	-webkit-animation-delay: 0.38436440541409s;
+	        animation-delay: 0.38436440541409s;
 }
-.map svg #country_2:hover {
-	fill: #FFD500;
+.map svg #country_2:hover,
+.map svg #country_2:active,
+.map svg #country_2:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_2 {
 	0% {
@@ -1276,14 +1327,17 @@ body {
 }
 .map svg #country_3 {
 	fill: #EDB016;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.217844341299497s;
-	        animation-delay: 1.217844341299497s;
+	-webkit-animation: country_3 2s infinite;
+	        animation: country_3 2s infinite;
+	-webkit-animation-delay: 0.307903151842766s;
+	        animation-delay: 0.307903151842766s;
 }
-.map svg #country_3:hover {
-	fill: #FFD500;
+.map svg #country_3:hover,
+.map svg #country_3:active,
+.map svg #country_3:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_3 {
 	0% {
@@ -1321,14 +1375,17 @@ body {
 }
 .map svg #country_4 {
 	fill: #FFCD50;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.024246143875644s;
-	        animation-delay: 1.024246143875644s;
+	-webkit-animation: country_4 2s infinite;
+	        animation: country_4 2s infinite;
+	-webkit-animation-delay: 0.796686332440004s;
+	        animation-delay: 0.796686332440004s;
 }
-.map svg #country_4:hover {
-	fill: #FFEB0A;
+.map svg #country_4:hover,
+.map svg #country_4:active,
+.map svg #country_4:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_4 {
 	0% {
@@ -1366,14 +1423,17 @@ body {
 }
 .map svg #country_5 {
 	fill: #EDB016;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.22247020364739s;
-	        animation-delay: 1.22247020364739s;
+	-webkit-animation: country_5 2s infinite;
+	        animation: country_5 2s infinite;
+	-webkit-animation-delay: 1.218515314045362s;
+	        animation-delay: 1.218515314045362s;
 }
-.map svg #country_5:hover {
-	fill: #FFD500;
+.map svg #country_5:hover,
+.map svg #country_5:active,
+.map svg #country_5:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_5 {
 	0% {
@@ -1411,14 +1471,17 @@ body {
 }
 .map svg #country_6 {
 	fill: #EDB016;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.192537831608206s;
-	        animation-delay: 1.192537831608206s;
+	-webkit-animation: country_6 2s infinite;
+	        animation: country_6 2s infinite;
+	-webkit-animation-delay: 0.565137221594341s;
+	        animation-delay: 0.565137221594341s;
 }
-.map svg #country_6:hover {
-	fill: #FFD500;
+.map svg #country_6:hover,
+.map svg #country_6:active,
+.map svg #country_6:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_6 {
 	0% {
@@ -1456,14 +1519,17 @@ body {
 }
 .map svg #country_7 {
 	fill: #CA940B;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.404498652904294s;
-	        animation-delay: 0.404498652904294s;
+	-webkit-animation: country_7 2s infinite;
+	        animation: country_7 2s infinite;
+	-webkit-animation-delay: 0.101619103574194s;
+	        animation-delay: 0.101619103574194s;
 }
-.map svg #country_7:hover {
-	fill: #FFB500;
+.map svg #country_7:hover,
+.map svg #country_7:active,
+.map svg #country_7:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_7 {
 	0% {
@@ -1501,14 +1567,17 @@ body {
 }
 .map svg #country_8 {
 	fill: #F6BF35;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.101976211415604s;
-	        animation-delay: 0.101976211415604s;
+	-webkit-animation: country_8 2s infinite;
+	        animation: country_8 2s infinite;
+	-webkit-animation-delay: 0.160618167137727s;
+	        animation-delay: 0.160618167137727s;
 }
-.map svg #country_8:hover {
-	fill: #FFE000;
+.map svg #country_8:hover,
+.map svg #country_8:active,
+.map svg #country_8:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_8 {
 	0% {
@@ -1546,14 +1615,17 @@ body {
 }
 .map svg #country_9 {
 	fill: #CA940B;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.330463138991036s;
-	        animation-delay: 1.330463138991036s;
+	-webkit-animation: country_9 2s infinite;
+	        animation: country_9 2s infinite;
+	-webkit-animation-delay: 0.684258519904688s;
+	        animation-delay: 0.684258519904688s;
 }
-.map svg #country_9:hover {
-	fill: #FFB500;
+.map svg #country_9:hover,
+.map svg #country_9:active,
+.map svg #country_9:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_9 {
 	0% {
@@ -1591,14 +1663,17 @@ body {
 }
 .map svg #country_10 {
 	fill: #F6BF35;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.358131654327735s;
-	        animation-delay: 1.358131654327735s;
+	-webkit-animation: country_10 2s infinite;
+	        animation: country_10 2s infinite;
+	-webkit-animation-delay: 1.305592383840121s;
+	        animation-delay: 1.305592383840121s;
 }
-.map svg #country_10:hover {
-	fill: #FFE000;
+.map svg #country_10:hover,
+.map svg #country_10:active,
+.map svg #country_10:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_10 {
 	0% {
@@ -1636,14 +1711,17 @@ body {
 }
 .map svg #country_11 {
 	fill: #CA940B;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.347670713905245s;
-	        animation-delay: 0.347670713905245s;
+	-webkit-animation: country_11 2s infinite;
+	        animation: country_11 2s infinite;
+	-webkit-animation-delay: 1.466581015032716s;
+	        animation-delay: 1.466581015032716s;
 }
-.map svg #country_11:hover {
-	fill: #FFB500;
+.map svg #country_11:hover,
+.map svg #country_11:active,
+.map svg #country_11:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_11 {
 	0% {
@@ -1681,14 +1759,17 @@ body {
 }
 .map svg #country_12 {
 	fill: #EDB016;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.439131773426197s;
-	        animation-delay: 1.439131773426197s;
+	-webkit-animation: country_12 2s infinite;
+	        animation: country_12 2s infinite;
+	-webkit-animation-delay: 0.441874450771138s;
+	        animation-delay: 0.441874450771138s;
 }
-.map svg #country_12:hover {
-	fill: #FFD500;
+.map svg #country_12:hover,
+.map svg #country_12:active,
+.map svg #country_12:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_12 {
 	0% {
@@ -1726,14 +1807,17 @@ body {
 }
 .map svg #country_13 {
 	fill: #FFCD50;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.755650364561006s;
-	        animation-delay: 0.755650364561006s;
+	-webkit-animation: country_13 2s infinite;
+	        animation: country_13 2s infinite;
+	-webkit-animation-delay: 0.552826109924354s;
+	        animation-delay: 0.552826109924354s;
 }
-.map svg #country_13:hover {
-	fill: #FFEB0A;
+.map svg #country_13:hover,
+.map svg #country_13:active,
+.map svg #country_13:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_13 {
 	0% {
@@ -1771,14 +1855,17 @@ body {
 }
 .map svg #country_14 {
 	fill: #F6BF35;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 1.078190387925133s;
-	        animation-delay: 1.078190387925133s;
+	-webkit-animation: country_14 2s infinite;
+	        animation: country_14 2s infinite;
+	-webkit-animation-delay: 0.18792770022992s;
+	        animation-delay: 0.18792770022992s;
 }
-.map svg #country_14:hover {
-	fill: #FFE000;
+.map svg #country_14:hover,
+.map svg #country_14:active,
+.map svg #country_14:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_14 {
 	0% {
@@ -1816,14 +1903,17 @@ body {
 }
 .map svg #country_15 {
 	fill: #F6BF35;
-	cursor: pointer;
 	-webkit-transition: all 350ms;
 	        transition: all 350ms;
-	-webkit-animation-delay: 0.643419848755002s;
-	        animation-delay: 0.643419848755002s;
+	-webkit-animation: country_15 2s infinite;
+	        animation: country_15 2s infinite;
+	-webkit-animation-delay: 0.510700708022341s;
+	        animation-delay: 0.510700708022341s;
 }
-.map svg #country_15:hover {
-	fill: #FFE000;
+.map svg #country_15:hover,
+.map svg #country_15:active,
+.map svg #country_15:focus {
+	fill: #EB902D;
 }
 @-webkit-keyframes country_15 {
 	0% {
@@ -1860,16 +1950,12 @@ body {
 	}
 }
 .tooltip {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display:         flex;
+	display: none;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
-	visibility: hidden;
 	-webkit-transition: visibility 350ms;
 	        transition: visibility 350ms;
 	-webkit-transform: translateY(-50%);
@@ -1949,9 +2035,9 @@ body {
 }
 .t-icon {
 	-webkit-box-flex: 0;
-	-webkit-flex: 0 0 30%;
-	    -ms-flex: 0 0 30%;
-	        flex: 0 0 30%;
+	-webkit-flex: 0 0 auto;
+	    -ms-flex: 0 0 auto;
+	        flex: 0 0 auto;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -1960,46 +2046,36 @@ body {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	        align-items: center;
-}
-.t-icon__svg {
-	height: 1.66015625vw;
-	width: 1.66015625vw;
-	border-radius: 50%;
-	position: relative;
-}
-.t-icon__svg--users {
-	background: #004728;
-}
-.t-icon__svg--questions {
-	background: #D6A72F;
-}
-.t-icon__svg--comments {
-	background: #CC7C27;
-}
-.t-icon__svg svg {
-	display: block;
-	position: absolute;
-	height: 1.7578125vw;
-	width: 1.7578125vw;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	    -ms-transform: translate(-50%, -50%);
-	        transform: translate(-50%, -50%);
-	fill: #DEDEDE;
-	stroke-width: 0;
+	margin-right: 1.220703125vw;
 }
 .t-icon__quantity {
 	font-size: 0.81396484375vw;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 auto;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
 }
-.t-icon__quantity--users {
+.t-icon--users {
 	color: #004728;
+	fill: #004728;
 }
-.t-icon__quantity--questions {
+.t-icon--questions {
 	color: #D6A72F;
+	fill: #D6A72F;
 }
-.t-icon__quantity--comments {
+.t-icon--comments {
 	color: #CC7C27;
+	fill: #CC7C27;
+}
+.t-icon svg {
+	height: 1.3671875vw;
+	width: 1.3671875vw;
+	stroke-width: 0;
+	margin-right: 0.244140625vw;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 1.3671875vw;
+	    -ms-flex: 0 0 1.3671875vw;
+	        flex: 0 0 1.3671875vw;
 }
 .t-text {
 	display: -webkit-box;
@@ -2013,40 +2089,6 @@ body {
 }
 .t-text__title {
 	color: #525252;
-}
-@-webkit-keyframes animatemap {
-	0% {
-		opacity: 1;
-		-webkit-transform: translateZ(0);
-		        transform: translateZ(0);
-	}
-	50% {
-		opacity: 0.7;
-		-webkit-transform: translateZ(1px);
-		        transform: translateZ(1px);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translateZ(0);
-		        transform: translateZ(0);
-	}
-}
-@keyframes animatemap {
-	0% {
-		opacity: 1;
-		-webkit-transform: translateZ(0);
-		        transform: translateZ(0);
-	}
-	50% {
-		opacity: 0.7;
-		-webkit-transform: translateZ(1px);
-		        transform: translateZ(1px);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translateZ(0);
-		        transform: translateZ(0);
-	}
 }
 .graph {
 	padding: 1.3671875vw;
@@ -2186,4 +2228,90 @@ body {
 	stroke: #FFFFFF;
 	stroke-width: 4;
 	fill: #0B62A4;
+}
+@media only screen and (min-width: 1200px) {
+	.map svg #area_1 {
+		cursor: pointer;
+	}
+	.map svg #area_2 {
+		cursor: pointer;
+	}
+	.map svg #area_3 {
+		cursor: pointer;
+	}
+	.map svg #area_4 {
+		cursor: pointer;
+	}
+	.map svg #area_5 {
+		cursor: pointer;
+	}
+	.map svg #area_6 {
+		cursor: pointer;
+	}
+	.map svg #area_7 {
+		cursor: pointer;
+	}
+	.map svg #area_8 {
+		cursor: pointer;
+	}
+	.map svg #area_9 {
+		cursor: pointer;
+	}
+	.map svg #area_10 {
+		cursor: pointer;
+	}
+	.map svg #area_11 {
+		cursor: pointer;
+	}
+	.map svg #area_12 {
+		cursor: pointer;
+	}
+	.map svg #area_13 {
+		cursor: pointer;
+	}
+	.map svg #country_1 {
+		cursor: pointer;
+	}
+	.map svg #country_2 {
+		cursor: pointer;
+	}
+	.map svg #country_3 {
+		cursor: pointer;
+	}
+	.map svg #country_4 {
+		cursor: pointer;
+	}
+	.map svg #country_5 {
+		cursor: pointer;
+	}
+	.map svg #country_6 {
+		cursor: pointer;
+	}
+	.map svg #country_7 {
+		cursor: pointer;
+	}
+	.map svg #country_8 {
+		cursor: pointer;
+	}
+	.map svg #country_9 {
+		cursor: pointer;
+	}
+	.map svg #country_10 {
+		cursor: pointer;
+	}
+	.map svg #country_11 {
+		cursor: pointer;
+	}
+	.map svg #country_12 {
+		cursor: pointer;
+	}
+	.map svg #country_13 {
+		cursor: pointer;
+	}
+	.map svg #country_14 {
+		cursor: pointer;
+	}
+	.map svg #country_15 {
+		cursor: pointer;
+	}
 }

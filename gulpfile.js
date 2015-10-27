@@ -32,6 +32,8 @@ path.jshint = [
 	"!" + path.dest + "js**/*.min.js"
 ]
 
+path.csv= path.src + "templates/csv/*.csv";
+
 path.images = path.src + "images/**/*.+(png|jpg|gif)";
 path.svg= path.src + "images/**/*.svg";
 
@@ -92,6 +94,11 @@ gulp.task('clean', function(){
 });
 
 
+gulp.task('csv', function(){
+	return gulp.src(path.csv)
+	.pipe(gulp.dest(path.dest));
+});
+
 gulp.task('imagemin', function(){
 	return gulp.src(path.images)
 	.pipe(plumber())
@@ -118,6 +125,7 @@ gulp.task('watch', function(){
 	gulp.watch(path.jadeWatch, ['jade']);
 	gulp.watch(path.stylusWatch, ['stylus']);
 	gulp.watch(path.js, ['js']);
+	gulp.watch(path.csv, ['csv']);
 	gulp.watch(path.images, ['imagemin']);
 	gulp.watch(path.svg, ['svg']);
 	gulp.watch(path.fonts, ['fonts']);
@@ -134,5 +142,5 @@ gulp.task('browsersync', function(){
 });
 
 gulp.task('default', function(callback){
-	runSequence(['jade', 'stylus', 'js', 'imagemin', 'svg', 'fonts'], ['watch', 'browsersync'], callback);
+	runSequence(['jade', 'stylus', 'js', 'csv', 'imagemin', 'svg', 'fonts'], ['watch', 'browsersync'], callback);
 });

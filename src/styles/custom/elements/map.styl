@@ -6,14 +6,15 @@
 		stroke white
 		stroke-width 0.5px
 		#animated
-			//animation animatemap 2s infinite
+			path:focus
+				outline none
 		#none
 			fill #949494
 			cursor default
 
 	&__tooltip
 		position absolute
-		width vw(290)
+		min-width vw(290)
 		height vw(168)
 		border-radius vw(5)
 		padding vw(8)
@@ -33,17 +34,8 @@
 		.string
 			font-size vw(12.5)
 
-@keyframes animatemap
-	0%
-		opacity 1
-		transform translateZ(0)
-	50%
-		opacity 0.7
-		transform translateZ(1px)
-	100%
-		opacity 1
-		transform translateZ(0)
-
+	use
+		pointer-events none
 
 $data = {
 	area_1:     #44b230,
@@ -79,12 +71,15 @@ $data = {
 for key, value in $data
 	.map svg #{key}
 		fill value
-		cursor pointer
 		transition all 350ms
-		//animation unquote(key) 1.5s infinite
+		animation unquote(key) 2s infinite
 		animation-delay math(0, 'random')*1.5s
+		@media only screen and (min-width: 1200px)
+			cursor pointer
 		&:hover
-			fill saturate(value,80%)
+		&:active
+		&:focus
+			fill #eb902d
 	@keyframes key
 		0%
 			opacity 1
@@ -97,9 +92,8 @@ for key, value in $data
 			transform translateZ(0)
 
 .tooltip
-	display flex
+	display none
 	flex-direction column
-	visibility hidden
 	transition visibility 350ms
 	transform translateY(-50%)
 	box-shadow vw(1) vw(1) vw(2) lighten(#7bb255, 30%)
@@ -147,38 +141,28 @@ for key, value in $data
 		transform translateY(-50%)
 
 .t-icon
-	flex 0 0 30%
+	flex 0 0 auto
 	display flex
 	align-items center
-	&__svg
-		height vw(34)
-		width vw(34)
-		border-radius 50%
-		position relative
-		&--users
-			background #004728
-		&--questions
-			background #d6a72f
-		&--comments
-			background #cc7c27
-		svg
-			display block
-			position absolute
-			height vw(36)
-			width vw(36)
-			left 50%
-			top 50%
-			transform translate(-50%,-50%)
-			fill #dedede
-			stroke-width 0
+	margin-right vw(25)
 	&__quantity
 		font-size vw(16.67)
-		&--users
-			color #004728
-		&--questions
-			color #d6a72f
-		&--comments
-			color #cc7c27
+		flex 1 0 auto
+	&--users
+		color #004728
+		fill #004728
+	&--questions
+		color #d6a72f
+		fill #d6a72f
+	&--comments
+		color #cc7c27
+		fill #cc7c27
+	svg
+		height vw(28)
+		width vw(28)
+		stroke-width 0
+		margin-right vw(5)
+		flex 0 0 vw(28)
 
 .t-text
 	display flex
