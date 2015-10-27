@@ -507,6 +507,9 @@
     
     
     	d3.csv('tonality.csv', function(error, dataset){
+    
+    		if (error) throw error;
+    
     		dataset.forEach(function(d){
     			var sum = parseFloat(d.positive) + parseFloat(d.neutral) + parseFloat(d.negative);
     			if (sum > maxSum){maxSum = sum};
@@ -609,6 +612,9 @@
     		.sort(null);
     
     	d3.csv('relative.csv', function(error, dataset){
+    
+    		if (error) throw error;
+    
     		dataset.forEach(function(d){
     			d.year = +d.year;
     		});
@@ -715,6 +721,9 @@
     		.sort(null);
     
     	d3.csv('structure.csv', function(error, dataset){
+    
+    		if (error) throw error;
+    
     		dataset.forEach(function(d){
     			d.count = +d.count;
     		});

@@ -549,7 +549,7 @@ body {
 }
 .badge svg {
 	width: 4.6875vw;
-	height: auto;
+	height: 4.6875vw;
 	margin-right: 1.123046875vw;
 }
 .badge__text .number {
@@ -566,8 +566,8 @@ body {
 	position: relative;
 }
 .map svg {
-	width: 100%;
-	height: auto;
+	width: 85.9375vw;
+	height: 54.6875vw;
 	stroke: #FFFFFF;
 	stroke-width: 0.5px;
 }
@@ -611,8 +611,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_1 2s infinite;
 	        animation: area_1 2s infinite;
-	-webkit-animation-delay: 0.659656680305488s;
-	        animation-delay: 0.659656680305488s;
+	-webkit-animation-delay: 0.584748503635637s;
+	        animation-delay: 0.584748503635637s;
 }
 .map svg #area_1:hover,
 .map svg #area_1:active,
@@ -659,8 +659,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_2 2s infinite;
 	        animation: area_2 2s infinite;
-	-webkit-animation-delay: 1.468124931561761s;
-	        animation-delay: 1.468124931561761s;
+	-webkit-animation-delay: 1.075779749779031s;
+	        animation-delay: 1.075779749779031s;
 }
 .map svg #area_2:hover,
 .map svg #area_2:active,
@@ -707,8 +707,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_3 2s infinite;
 	        animation: area_3 2s infinite;
-	-webkit-animation-delay: 1.142861513304524s;
-	        animation-delay: 1.142861513304524s;
+	-webkit-animation-delay: 1.017475778935477s;
+	        animation-delay: 1.017475778935477s;
 }
 .map svg #area_3:hover,
 .map svg #area_3:active,
@@ -755,8 +755,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_4 2s infinite;
 	        animation: area_4 2s infinite;
-	-webkit-animation-delay: 1.16949681378901s;
-	        animation-delay: 1.16949681378901s;
+	-webkit-animation-delay: 1.257685771677643s;
+	        animation-delay: 1.257685771677643s;
 }
 .map svg #area_4:hover,
 .map svg #area_4:active,
@@ -803,8 +803,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_5 2s infinite;
 	        animation: area_5 2s infinite;
-	-webkit-animation-delay: 0.300632797298022s;
-	        animation-delay: 0.300632797298022s;
+	-webkit-animation-delay: 0.378347198478878s;
+	        animation-delay: 0.378347198478878s;
 }
 .map svg #area_5:hover,
 .map svg #area_5:active,
@@ -851,8 +851,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_6 2s infinite;
 	        animation: area_6 2s infinite;
-	-webkit-animation-delay: 0.016598776448518s;
-	        animation-delay: 0.016598776448518s;
+	-webkit-animation-delay: 1.031054196995683s;
+	        animation-delay: 1.031054196995683s;
 }
 .map svg #area_6:hover,
 .map svg #area_6:active,
@@ -899,8 +899,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_7 2s infinite;
 	        animation: area_7 2s infinite;
-	-webkit-animation-delay: 0.863754817983136s;
-	        animation-delay: 0.863754817983136s;
+	-webkit-animation-delay: 0.80893699277658s;
+	        animation-delay: 0.80893699277658s;
 }
 .map svg #area_7:hover,
 .map svg #area_7:active,
@@ -947,8 +947,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_8 2s infinite;
 	        animation: area_8 2s infinite;
-	-webkit-animation-delay: 0.61372119106818s;
-	        animation-delay: 0.61372119106818s;
+	-webkit-animation-delay: 1.117260447819717s;
+	        animation-delay: 1.117260447819717s;
 }
 .map svg #area_8:hover,
 .map svg #area_8:active,
@@ -995,8 +995,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_9 2s infinite;
 	        animation: area_9 2s infinite;
-	-webkit-animation-delay: 0.162536554271355s;
-	        animation-delay: 0.162536554271355s;
+	-webkit-animation-delay: 1.318620282341726s;
+	        animation-delay: 1.318620282341726s;
 }
 .map svg #area_9:hover,
 .map svg #area_9:active,
@@ -1043,8 +1043,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_10 2s infinite;
 	        animation: area_10 2s infinite;
-	-webkit-animation-delay: 0.831537513644435s;
-	        animation-delay: 0.831537513644435s;
+	-webkit-animation-delay: 0.958913148497231s;
+	        animation-delay: 0.958913148497231s;
 }
 .map svg #area_10:hover,
 .map svg #area_10:active,
@@ -1091,8 +1091,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_11 2s infinite;
 	        animation: area_11 2s infinite;
-	-webkit-animation-delay: 0.337414867943153s;
-	        animation-delay: 0.337414867943153s;
+	-webkit-animation-delay: 0.350959617993794s;
+	        animation-delay: 0.350959617993794s;
 }
 .map svg #area_11:hover,
 .map svg #area_11:active,
@@ -1139,8 +1139,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_12 2s infinite;
 	        animation: area_12 2s infinite;
-	-webkit-animation-delay: 0.481626975699328s;
-	        animation-delay: 0.481626975699328s;
+	-webkit-animation-delay: 1.135557934292592s;
+	        animation-delay: 1.135557934292592s;
 }
 .map svg #area_12:hover,
 .map svg #area_12:active,
@@ -1187,8 +1187,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: area_13 2s infinite;
 	        animation: area_13 2s infinite;
-	-webkit-animation-delay: 1.236332537024282s;
-	        animation-delay: 1.236332537024282s;
+	-webkit-animation-delay: 0.172694854787551s;
+	        animation-delay: 0.172694854787551s;
 }
 .map svg #area_13:hover,
 .map svg #area_13:active,
@@ -1235,8 +1235,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_1 2s infinite;
 	        animation: country_1 2s infinite;
-	-webkit-animation-delay: 0.0149092086358s;
-	        animation-delay: 0.0149092086358s;
+	-webkit-animation-delay: 1.337189059238881s;
+	        animation-delay: 1.337189059238881s;
 }
 .map svg #country_1:hover,
 .map svg #country_1:active,
@@ -1283,8 +1283,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_2 2s infinite;
 	        animation: country_2 2s infinite;
-	-webkit-animation-delay: 0.38436440541409s;
-	        animation-delay: 0.38436440541409s;
+	-webkit-animation-delay: 1.093818043358624s;
+	        animation-delay: 1.093818043358624s;
 }
 .map svg #country_2:hover,
 .map svg #country_2:active,
@@ -1331,8 +1331,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_3 2s infinite;
 	        animation: country_3 2s infinite;
-	-webkit-animation-delay: 0.307903151842766s;
-	        animation-delay: 0.307903151842766s;
+	-webkit-animation-delay: 0.274258453398943s;
+	        animation-delay: 0.274258453398943s;
 }
 .map svg #country_3:hover,
 .map svg #country_3:active,
@@ -1379,8 +1379,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_4 2s infinite;
 	        animation: country_4 2s infinite;
-	-webkit-animation-delay: 0.796686332440004s;
-	        animation-delay: 0.796686332440004s;
+	-webkit-animation-delay: 1.083289533737116s;
+	        animation-delay: 1.083289533737116s;
 }
 .map svg #country_4:hover,
 .map svg #country_4:active,
@@ -1427,8 +1427,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_5 2s infinite;
 	        animation: country_5 2s infinite;
-	-webkit-animation-delay: 1.218515314045362s;
-	        animation-delay: 1.218515314045362s;
+	-webkit-animation-delay: 0.112217900692485s;
+	        animation-delay: 0.112217900692485s;
 }
 .map svg #country_5:hover,
 .map svg #country_5:active,
@@ -1475,8 +1475,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_6 2s infinite;
 	        animation: country_6 2s infinite;
-	-webkit-animation-delay: 0.565137221594341s;
-	        animation-delay: 0.565137221594341s;
+	-webkit-animation-delay: 1.180186783662066s;
+	        animation-delay: 1.180186783662066s;
 }
 .map svg #country_6:hover,
 .map svg #country_6:active,
@@ -1523,8 +1523,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_7 2s infinite;
 	        animation: country_7 2s infinite;
-	-webkit-animation-delay: 0.101619103574194s;
-	        animation-delay: 0.101619103574194s;
+	-webkit-animation-delay: 1.375005780835636s;
+	        animation-delay: 1.375005780835636s;
 }
 .map svg #country_7:hover,
 .map svg #country_7:active,
@@ -1571,8 +1571,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_8 2s infinite;
 	        animation: country_8 2s infinite;
-	-webkit-animation-delay: 0.160618167137727s;
-	        animation-delay: 0.160618167137727s;
+	-webkit-animation-delay: 1.359264709870331s;
+	        animation-delay: 1.359264709870331s;
 }
 .map svg #country_8:hover,
 .map svg #country_8:active,
@@ -1619,8 +1619,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_9 2s infinite;
 	        animation: country_9 2s infinite;
-	-webkit-animation-delay: 0.684258519904688s;
-	        animation-delay: 0.684258519904688s;
+	-webkit-animation-delay: 0.062812976189889s;
+	        animation-delay: 0.062812976189889s;
 }
 .map svg #country_9:hover,
 .map svg #country_9:active,
@@ -1667,8 +1667,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_10 2s infinite;
 	        animation: country_10 2s infinite;
-	-webkit-animation-delay: 1.305592383840121s;
-	        animation-delay: 1.305592383840121s;
+	-webkit-animation-delay: 0.4496554734651s;
+	        animation-delay: 0.4496554734651s;
 }
 .map svg #country_10:hover,
 .map svg #country_10:active,
@@ -1715,8 +1715,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_11 2s infinite;
 	        animation: country_11 2s infinite;
-	-webkit-animation-delay: 1.466581015032716s;
-	        animation-delay: 1.466581015032716s;
+	-webkit-animation-delay: 0.629729344393127s;
+	        animation-delay: 0.629729344393127s;
 }
 .map svg #country_11:hover,
 .map svg #country_11:active,
@@ -1763,8 +1763,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_12 2s infinite;
 	        animation: country_12 2s infinite;
-	-webkit-animation-delay: 0.441874450771138s;
-	        animation-delay: 0.441874450771138s;
+	-webkit-animation-delay: 0.416701036971062s;
+	        animation-delay: 0.416701036971062s;
 }
 .map svg #country_12:hover,
 .map svg #country_12:active,
@@ -1811,8 +1811,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_13 2s infinite;
 	        animation: country_13 2s infinite;
-	-webkit-animation-delay: 0.552826109924354s;
-	        animation-delay: 0.552826109924354s;
+	-webkit-animation-delay: 0.132771296077408s;
+	        animation-delay: 0.132771296077408s;
 }
 .map svg #country_13:hover,
 .map svg #country_13:active,
@@ -1859,8 +1859,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_14 2s infinite;
 	        animation: country_14 2s infinite;
-	-webkit-animation-delay: 0.18792770022992s;
-	        animation-delay: 0.18792770022992s;
+	-webkit-animation-delay: 0.592819183249958s;
+	        animation-delay: 0.592819183249958s;
 }
 .map svg #country_14:hover,
 .map svg #country_14:active,
@@ -1907,8 +1907,8 @@ body {
 	        transition: all 350ms;
 	-webkit-animation: country_15 2s infinite;
 	        animation: country_15 2s infinite;
-	-webkit-animation-delay: 0.510700708022341s;
-	        animation-delay: 0.510700708022341s;
+	-webkit-animation-delay: 0.364193635177799s;
+	        animation-delay: 0.364193635177799s;
 }
 .map svg #country_15:hover,
 .map svg #country_15:active,
@@ -2142,7 +2142,7 @@ body {
 }
 .graph--pie svg {
 	width: 13.57421875vw;
-	height: auto;
+	height: 13.57421875vw;
 }
 .graph__legend {
 	font-size: 1.01708984375vw;
@@ -2203,6 +2203,7 @@ body {
 }
 .graph--linechart svg {
 	width: 81.0546875vw;
+	height: 16.40625vw;
 	-webkit-box-flex: 1;
 	-webkit-flex: 1 0 16.40625vw;
 	    -ms-flex: 1 0 16.40625vw;
