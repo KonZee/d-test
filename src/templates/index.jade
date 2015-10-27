@@ -50,6 +50,32 @@ block content
 				.content-body__map.map
 					//-include svg/bigmap.svg
 					include elements/bigmap.jade
+					.map__tooltip.tooltip
+						.tooltip__title.text-center Сибирский банк
+						.tooltip__icons
+							.t-icon
+								.t-icon__svg.t-icon__svg--users
+									include svg/users.svg
+								.t-icon__quantity.t-icon__quantity--users 1462
+							.t-icon
+								.t-icon__svg.t-icon__svg--questions
+									include svg/questions.svg
+								.t-icon__quantity.t-icon__quantity--questions 162
+							.t-icon
+								.t-icon__svg.t-icon__svg--comments
+									include svg/comments.svg
+								.t-icon__quantity.t-icon__quantity--comments 4
+						.tooltip__text
+							.t-text
+								.t-text__theme Тема:
+								.t-text__title Управление банком
+							.t-text
+								.t-text__theme Тональность:
+								.t-text__title Нейтральная
+						a(href="").tooltip__button.text-center Подробнее
+
+
+
 					.map__legend
 						.title Интерактивная карта
 						.string Нажмите на регион для просмотра<br />подробной информации

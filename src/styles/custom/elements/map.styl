@@ -3,15 +3,23 @@
 	svg
 		width 100%
 		height auto
-		fill #44b230
 		stroke white
 		stroke-width 0.5px
-		//animation animatemap 5s infinite
-
-
+		#animated
+			//animation animatemap 2s infinite
 		#none
 			fill #949494
 			cursor default
+
+	&__tooltip
+		position absolute
+		width vw(290)
+		height vw(168)
+		border-radius vw(5)
+		padding vw(8)
+		background #dedede
+		left 50%
+		top 50%
 
 	&__legend
 		position absolute
@@ -28,10 +36,13 @@
 @keyframes animatemap
 	0%
 		opacity 1
+		transform translateZ(0)
 	50%
 		opacity 0.7
+		transform translateZ(1px)
 	100%
 		opacity 1
+		transform translateZ(0)
 
 
 $data = {
@@ -69,3 +80,110 @@ for key, value in $data
 	.map svg #{key}
 		fill value
 		cursor pointer
+		transition all 350ms
+		//animation unquote(key) 1.5s infinite
+		animation-delay math(0, 'random')*1.5s
+		&:hover
+			fill saturate(value,80%)
+	@keyframes key
+		0%
+			opacity 1
+			transform translateZ(0)
+		50%
+			opacity 0.85
+			transform translateZ(1px)
+		100%
+			opacity 1
+			transform translateZ(0)
+
+.tooltip
+	display flex
+	flex-direction column
+	visibility hidden
+	transition visibility 350ms
+	transform translateY(-50%)
+	box-shadow vw(1) vw(1) vw(2) lighten(#7bb255, 30%)
+	&__title
+		text-transform uppercase
+		font-size vw(20.83)
+		color #525252
+		font-weight bold
+		flex 0 0 vw(22)
+		margin-bottom vw(5)
+	&__icons
+		flex 0 0 vw(46)
+		display flex
+		justify-content flex-start
+		align-items center
+		border-top 1px solid #7a7a7a
+		border-bottom 1px solid #7a7a7a
+		margin-bottom vw(6)
+	&__text
+		font-size vw(16.67)
+		font-weight bold
+		flex 1 0 1%
+	&__button
+		background #76b945
+		color #fff
+		font-size vw(13.15)
+		width vw(134)
+		padding vw(5) 0
+		border-radius vw(2)
+		align-self center
+		text-decoration none
+		&:hover
+			text-decoration inherit
+	&:before
+		display block
+		content ""
+		position absolute
+		width 0
+		height 0
+		border-style: solid;
+		border-width: vw(9) vw(15.9) vw(9) 0;
+		border-color: transparent #dedede transparent transparent;
+		top 50%
+		left -(vw(14))
+		transform translateY(-50%)
+
+.t-icon
+	flex 0 0 30%
+	display flex
+	align-items center
+	&__svg
+		height vw(34)
+		width vw(34)
+		border-radius 50%
+		position relative
+		&--users
+			background #004728
+		&--questions
+			background #d6a72f
+		&--comments
+			background #cc7c27
+		svg
+			display block
+			position absolute
+			height vw(36)
+			width vw(36)
+			left 50%
+			top 50%
+			transform translate(-50%,-50%)
+			fill #dedede
+			stroke-width 0
+	&__quantity
+		font-size vw(16.67)
+		&--users
+			color #004728
+		&--questions
+			color #d6a72f
+		&--comments
+			color #cc7c27
+
+.t-text
+	display flex
+	&__theme
+		margin-right 0.5em
+		color #949494
+	&__title
+		color #525252

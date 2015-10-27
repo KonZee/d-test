@@ -1,4 +1,4 @@
-//-script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js ')
+script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js ')
 
 script(src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8")
 
@@ -333,7 +333,7 @@ script.
 			.attr('class', 'title')
 			.text("Активность пользователей по неделям");
 
-		var margin = {left:30,right:30,top:10,bottom:30};
+		var margin = {left:40,right:30,top:10,bottom:30};
 		var svgWidth = 1660;
 		var svgHeight = 336;
 		var width = svgWidth - margin.left - margin.right;
@@ -386,7 +386,9 @@ script.
 
 		svg.append('g')
 			.attr('class', 'y axis')
-			.call(yAxis);
+			.call(yAxis)
+			.selectAll("text")
+			.attr("dx", "-8");
 
 		d3.csv("activity.csv", function(error, dataset){
 			dataset.forEach(function(d){
@@ -409,6 +411,16 @@ script.
 			var gCircle = svg.append('g')
 				.attr('class', 'circles');
 
+			gCircle.selectAll('.dot')
+				.data(dataset)
+				.enter()
+				.append('circle')
+				.attr("r", 8)
+				.attr("cx", function(d) { return x(d.date); })
+				.attr("cy", function(d) { return y(d.activity); });
+
 		});
 
 	})(window.d3);
+
+script(src="js/main.js")
